@@ -245,5 +245,36 @@ dishRouter.route('/:dishId/comments/:commentId')
     }, (err) => next(err))
     .catch((err) => next(err));
 });
+// .delete(authenticate.verifyUser, (req, res, next) => {
+//     Dishes.findById(req.params.dishId)
+//     .then((dish) => {
+//         if (dish != null && dish.comments.id(req.params.commentId) != null
+//             && dish.comments.id(req.params.commentId).author.equals(req.user._id)) {
+//             dish.comments.id(req.params.commentId).remove();
+//             dish.save()
+//             .then((dish) => {
+//                 res.statusCode = 200;
+//                 res.setHeader('Content-Type', 'application/json');
+//                 res.json(dish);                
+//             }, (err) => next(err));
+//         }
+//         else if (dish == null) {
+//             err = new Error('Dish ' + req.params.dishId + ' not found');
+//             err.status = 404;
+//             return next(err);
+//         }
+//         else if (dish.comments.id(req.params.commentId) == null) {
+//             err = new Error('Comment ' + req.params.commentId + ' not found');
+//             err.status = 404;
+//             return next(err);            
+//         }
+//         else {
+//             err = new Error('you are not authorized to delete this comment!');
+//             err.status = 403;
+//             return next(err);  
+//         }
+//     }, (err) => next(err))
+//     .catch((err) => next(err));
+// });
 
 module.exports = dishRouter;
