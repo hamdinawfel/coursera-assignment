@@ -15,6 +15,7 @@ connect.then((db) => {
 }, (err) => { console.log(err); });
 
 //Routes
+const favoriteRouter = require('./routes/favoriteRouter');
 const dishRouter = require('./routes/dishRouter');
 const promoRouter = require('./routes/promoRouter');
 const leaderRouter = require('./routes/leaderRouter');
@@ -26,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 
 
+app.use('/favorites', favoriteRouter);
 app.use('/dishes', dishRouter);
 app.use('/promotions', promoRouter);
 app.use('/leaders', leaderRouter);
